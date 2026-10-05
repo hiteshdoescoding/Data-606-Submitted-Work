@@ -9,12 +9,12 @@ They let you make a list of combined rows from data.
 The inner JOIN are the matched rows of the tables, the overlap of them.
 Venn diagram example:
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 
 Now using the example:
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### Inner JOIN
 
@@ -30,7 +30,7 @@ INNER JOIN orders
     ON users.user_id - orders.user_id;
 ```
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ### Left JOIN
 
@@ -47,7 +47,7 @@ LEFT JOIN orders
     ON users.user_id - orders.user_id;
 ```
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Note: the FROM is the left table, the other is the right table.
 
@@ -61,15 +61,15 @@ In the example, Charlie doesn't exist in the right join, same as inner join, but
 
 The right join is used less frequently than using the left.
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ### Full JOIN
 
 Takes all the rows from both tables.
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 ## Summary and why use JOINs?
 
@@ -94,9 +94,9 @@ The c._____ are aliases, they are just for efficiency in making you not have to 
 For example, here c.CompanyName means 'go to the table c (customers) and pull the CompanyName column'.
 This is how it is written in full:
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 
 ### Example 2: Orders with Product Names
 ```
@@ -107,7 +107,7 @@ INNER JOIN [Order Details] od
 INNER JOIN Products p
 	ON od.ProductID = p.ProductID;
 ```
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
 This is a junction table, a combination of tables, think of it like a roundabout or junction on a road.
 
@@ -126,7 +126,7 @@ Group by controls the level, without it we would get all orders.
 
 This gives us
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 
 ### Example 4: Total Spend per Customer
@@ -144,7 +144,7 @@ GROUP BY c.CompanyName
 ORDER BY TotalSpend DESC
 ```
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 
 
@@ -153,9 +153,9 @@ ORDER BY TotalSpend DESC
 Following example 4, now let's find the companies that may not have spent any money, as these are not shown in an inner join, since inner join only shows the matched values.
 Remember to put IS for finding NULL values (always use IS or IS NOT)
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 
 ### Example 6: Products Never Ordered
@@ -177,9 +177,9 @@ There was nothing in the table so there must have been no products that have nev
 This is a multi-dimensional query, where orders links to both customers and employees via foreign keys.
 In this case we have one "fact" table (Orders) and then multiple "dimension" tables (Customers and Employees).
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
 You can add:
 ```
@@ -188,5 +188,5 @@ ORDER BY NumberOfOrders DESC;
 ```
 To bring up employee name and how many orders they have done, to maybe check performance of the employees.
 
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
