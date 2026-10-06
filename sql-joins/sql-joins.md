@@ -158,6 +158,14 @@ Remember to put IS for finding NULL values (always use IS or IS NOT)
 ![alt text](images/image-13.png)
 
 
+```
+SELECT c.CompanyName
+FROM Customers c
+LEFT JOIN Orders o
+    ON c.CustomerID = o.CustomerID
+WHERE o.OrderID IS NULL;
+```
+
 ### Example 6: Products Never Ordered
 
 What about products that have never been ordered from the stock? Similar to example 5:
