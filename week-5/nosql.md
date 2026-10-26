@@ -124,10 +124,3 @@ db.characters.find(
     {name: 1, eye_color: 1, gender: 1, _id: 0}
 )
 ```
-
-
-
-
-
-
-

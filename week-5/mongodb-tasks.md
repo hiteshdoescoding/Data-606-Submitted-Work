@@ -242,11 +242,13 @@ Embedding has less processing power as it only searches one document, but refere
 
 
 
-
+Finding Darth Vader's ID
 ```
 db.characters.findOne({ name: "Darth Vader" }, { _id: 1, name: 1 })
 ```
 
+Creating the collection and inserting starships
+`db.createCollection("starships")`
 
 ```
 b.starships.insertOne({
@@ -264,23 +266,7 @@ b.starships.insertOne({
   that long thing is me inserting the ObjectID I got from submitting part 1 earlier
 
 
-
-
-`db.createCollection("starships")`
-
-```
-db.starships.insertOne({
-  name: "TIE Advanced x1",
-  model: "Twin Ion Engine Advanced x1",
-  manufacturer: "Sienar Fleet Systems",
-  length: 9.2,
-  max_atmosphering_speed: 1200,
-  crew: 1,
-  passengers: 0,
-  pilot: ObjectId("6adb38b2ade5b0a959b3c794")
-})
-```
-
+Joining collections with lookup, like an SQL Join
 '''
 db.starships.aggregate([
   {$lookup: {
