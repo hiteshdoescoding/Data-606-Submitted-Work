@@ -1,14 +1,14 @@
 # NoSQL Introduction
 
 ## Scaling
-* Horizontal is having more systems in case on fails
+* Horizontal is having more systems in case one fails
 * Vertical is the same machine but scaling it to be bigger
 * Relational databases usually use vertical as the databases can't really be strung out to multiple machines
 * SQL uses table like schemas, communicates via Structured Query Language (SQL)
 
 ## What is NoSQL?
 * Different structure (see the database types below), it's more flexible, less reliant on tabular form, dynamic schema
-* NoSQL support many different ways that data can be stored and accessed, such as python, csv, json, javascript, c sharp, xml, etc.. thus is very accessible
+* NoSQL supports many different ways that data can be stored and accessed, such as python, csv, json, javascript, c sharp, xml, etc.. thus is very accessible
 * Horizontal scalability/scale-out
 * Sharding and adding more servers, sharding is splitting up data across multiple machines
 * More powerful

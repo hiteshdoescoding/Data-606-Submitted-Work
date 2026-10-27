@@ -12,16 +12,20 @@ def get_starships():
     url = "https://swapi.dev/api/starships/"   # taken from the documentation
     ship_list = []
     next_page = True
+
     while next_page:
         response = requests.get(url)  # getting the response from the address
         data = response.json()  # putting the response into a json format which is a python dictionary to sort through
 
-        for starship in data["results"]:
-            ship_list.append(starship)
-        if data["next"] is not None:
-            url = data["next"]
+        if data and "results" in data: # this is all pagination
+            for starship in data["results"]:
+                ship_list.append(starship)
+            if data["next"] is not None:
+                url = data["next"]
+            else:
+                next_page = False
         else:
-            next_page = False
+             next_page = False
 
     return ship_list
 
@@ -36,7 +40,7 @@ print(get_starships()[0]["name"])   # this is just to check if it worked, to pri
 def get_pilot_ids(pilot_urls):   # defining the function, which receives the input we are calling pilot_urls
     pilot_object_ids = []   # creating the list to put all the pilot IDs in from the database
 
-    for pilot_url in pilot_urls():   # goes through the starship's pilots list
+    for pilot_url in pilot_urls:   # goes through the starship's pilots list
         pilot_response = requests.get(pilot_url)   # gets the data from the pilot's url
         pilot_data = pilot_response.json()   # takes the data and converts to a json dictionary format
 
@@ -60,5 +64,6 @@ def replace_pilots_and_insert():
         starship["pilots"] = pilot_ids # finally overwrites the old urls to the new IDs
 
     starships_collection.delete_many({}) # wipes old collection data to avoid duplicates if ran again
+    starships_collection.insert_many(starships)
 
-# insert many starships into mongodb
+replace_pilots_and_insert()

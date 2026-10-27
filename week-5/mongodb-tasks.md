@@ -267,7 +267,7 @@ b.starships.insertOne({
 
 
 Joining collections with lookup, like an SQL Join
-'''
+```
 db.starships.aggregate([
   {$lookup: {
     from: "characters",
